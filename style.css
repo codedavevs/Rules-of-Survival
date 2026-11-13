@@ -1,0 +1,837 @@
+/* ==========================================
+   1. CSS VARIABLES & BASE STYLES
+   ========================================== */
+:root {
+    --bg-dark: #0d1117;
+    --panel-bg: #161b22;
+    --card-bg: #11161d;
+    --border-color: #30363d;
+    --accent: #f59e0b;
+    --accent-hover: #d97706;
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    --danger: #ef4444;
+    --success: #10b981;
+    --android-color: #10b981;
+    --android-hover: #059669;
+    --discord-color: #5865F2;
+    --discord-hover: #4752C4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   2. HEADER, NAVIGATION & AUDIO HUD
+   ========================================== */
+.hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.9rem 5%;
+    background: var(--panel-bg);
+    border-bottom: 2px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.4rem;
+    background: var(--bg-dark);
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.audio-hud {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-dark);
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.audio-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    padding: 0.15rem 0.3rem;
+    border-radius: 4px;
+}
+
+.audio-btn:hover {
+    color: var(--accent);
+}
+
+.volume-slider {
+    width: 70px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    height: 4px;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   3. BUTTONS & SMOOTH ANIMATIONS
+   ========================================== */
+button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active {
+    transform: scale(0.96);
+}
+
+.primary-btn:hover, .web-visit-btn:hover, .download-btn:hover {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
+}
+
+.nav-tab {
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-tab.active, .nav-tab:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Tab View Fade Transition */
+.tab-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.tab-view.active {
+    display: block;
+    animation: tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    flex: 1;
+}
+
+@keyframes tabFadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   4. FULL-WIDTH CINEMATIC BANNERS
+   ========================================== */
+.banner {
+    position: relative;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+    margin: 20px 0;
+}
+
+.hero-banner {
+    height: 420px;
+    background-image: url('Pictures/Photo1.jpg');
+}
+
+.about-banner {
+    height: 360px;
+    background-image: url('Pictures/Rules of Survival lobby background.jpg');
+}
+
+.banner-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.45), rgba(13, 17, 23, 0.94));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.banner-content {
+    max-width: 760px;
+}
+
+.banner-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.25rem 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.banner-content h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+}
+
+.banner-content h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+}
+
+.banner-content p {
+    font-size: 1.02rem;
+    color: #d0d7de;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.7;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.about-banner .banner-content p {
+    margin-bottom: 0;
+}
+
+.primary-btn {
+    padding: 0.8rem 2rem;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.primary-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* ==========================================
+   5. CONTAINERS & REDESIGNED WEBSITE HUB
+   ========================================== */
+.container {
+    max-width: 1050px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.container.narrow {
+    max-width: 850px;
+}
+
+.panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.75rem;
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hub-counter {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+}
+
+.section-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 1rem 0 1.5rem 0;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+/* Redesigned Website Hub Grid */
+.website-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+}
+
+/* Make the 5th featured card span cleanly across the bottom or balance neatly */
+.website-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.website-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+.website-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.web-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.web-card-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.web-logo-box {
+    width: 50px;
+    height: 50px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.web-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.web-card-title h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.web-card-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.8px;
+}
+
+.web-status-pill {
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    white-space: nowrap;
+}
+
+.web-card-desc {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+.web-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(48, 54, 61, 0.6);
+}
+
+.web-domain-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.web-visit-btn {
+    padding: 0.55rem 1.1rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.web-visit-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* ==========================================
+   6. SERVER ROWS (INSTALLER & DISCORD)
+   ========================================== */
+.server-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.server-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.server-row:hover {
+    border-color: var(--accent);
+    transform: translateX(3px);
+}
+
+.server-row-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.row-logo {
+    width: 56px;
+    height: 42px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.server-row-info h4 {
+    font-size: 1.05rem;
+}
+
+.server-row-info span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.view-btn {
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.view-btn:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+.discord-join-btn {
+    padding: 0.6rem 1.2rem;
+    background: var(--discord-color);
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.discord-join-btn:hover {
+    background: var(--discord-hover);
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.4);
+}
+
+/* Detailed Build Card */
+.dl-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.dl-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+}
+
+.server-logo-container {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.server-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.dl-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.4rem;
+}
+
+.dl-info-main h3 {
+    font-size: 1.35rem;
+}
+
+.dl-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.dl-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+    background: var(--panel-bg);
+    padding: 0.9rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.dl-meta span {
+    color: var(--text-muted);
+    display: block;
+    font-size: 0.7rem;
+}
+
+.dl-action-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dl-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: var(--panel-bg);
+    padding: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.download-btn {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.pc-btn {
+    background: var(--accent);
+    color: #000;
+}
+
+.pc-btn:hover {
+    background: var(--accent-hover);
+}
+
+.android-btn {
+    background: var(--android-color);
+    color: #000;
+}
+
+.android-btn:hover {
+    background: var(--android-hover);
+}
+
+.dl-status {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.back-btn {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    color: var(--text-main);
+    border-color: var(--text-main);
+}
+
+/* ==========================================
+   7. FOOTER
+   ========================================== */
+.site-footer {
+    text-align: center;
+    padding: 1.8rem 1rem;
+    margin-top: auto;
+    background: var(--panel-bg);
+    border-top: 2px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.footer-sub {
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* ==========================================
+   8. RESPONSIVE DESIGN (MOBILE)
+   ========================================== */
+@media (max-width: 768px) {
+    .hud-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .main-nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-tab {
+        flex: 1;
+        text-align: center;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .header-right {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .hero-banner {
+        height: 320px;
+    }
+
+    .about-banner {
+        height: 300px;
+    }
+
+    .banner-content {
+        padding: 0 0.5rem;
+    }
+
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .banner-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .banner-content p {
+        font-size: 0.9rem;
+    }
+
+    .website-hub-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dl-action-dual {
+        grid-template-columns: 1fr;
+    }
+
+    .server-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .view-btn, .discord-join-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* ==========================================
+   10. FOOTER SOCIAL BUTTONS
+   ========================================== */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-btn:active {
+    transform: scale(0.96);
+}
+
+/* Discord Footer Button */
+.discord-social-btn {
+    background: #5865F2;
+    color: #ffffff;
+}
+
+.discord-social-btn:hover {
+    background: #4752C4;
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.4);
+}
+
+/* GitHub Footer Button */
+.github-social-btn {
+    background: #24292e;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+}
+
+.github-social-btn:hover {
+    background: #2f363d;
+    border-color: var(--text-muted);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+    .footer-socials {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

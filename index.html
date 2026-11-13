@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROS // Tactical Archive & Installer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hud-header">
+        <div class="logo">ROS<span>INSTALLER</span></div>
+        
+        <nav class="main-nav">
+            <button class="nav-tab active" data-target="tacticalView">Home</button>
+            <button class="nav-tab" data-target="downloadView">Installer</button>
+            <button class="nav-tab" data-target="discordView">Discord</button>
+        </nav>
+
+        <div class="header-right">
+            <div class="audio-hud">
+                <audio id="bgMusic" loop>
+                    <source src="Ros.wav" type="audio/wav">
+                </audio>
+                <button id="muteBtn" class="audio-btn" title="Mute / Unmute">🔊</button>
+                <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.3" title="Volume">
+            </div>
+            <div class="status-badge">SERVER STATUS: ACTIVE</div>
+        </div>
+    </header>
+
+    <!-- TAB 1: HOME PAGE -->
+    <main id="tacticalView" class="tab-view active">
+        <section class="banner hero-banner">
+            <div class="banner-overlay">
+                <div class="banner-content">
+                    <h1>RULES OF SURVIVAL</h1>
+                    <p>The ultimate battle royale archival hub. Explore community-driven revival servers, classic client builds, and custom tactical loads.</p>
+                    <button class="primary-btn" data-target-tab="downloadView">VIEW DOWNLOADS</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner about-banner">
+            <div class="banner-overlay">
+                <div class="banner-content">
+                    <span class="banner-tag">01 // ARCHIVE INTEL</span>
+                    <h2>ABOUT RULES OF SURVIVAL</h2>
+                    <p>Originally developed by NetEase Games, Rules of Survival pioneered massive 300-player battle royale combat across iconic maps like Ghillie Island and Fearless Fiord. Following official server closures, this archival hub preserves legacy clients and community revival builds so players can drop back in.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REDESIGNED WEBSITE HUB SECTION -->
+        <div class="container">
+            <section class="panel">
+                <div class="section-header-flex">
+                    <div>
+                        <h2 class="section-title" style="border: none; margin-bottom: 0.2rem; padding-bottom: 0;">02 // OFFICIAL SERVER WEBSITES & PORTALS</h2>
+                        <p class="subtitle" style="margin-bottom: 0;">Direct access to all 5 community revival portals, patch logs, and account registration pages.</p>
+                    </div>
+                    <span class="hub-counter">5 PORTALS ONLINE</span>
+                </div>
+                <div class="section-divider"></div>
+                <div class="website-hub-grid" id="homeServersGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- TAB 2: INSTALLER MENU -->
+    <main id="downloadView" class="tab-view">
+        <div class="container narrow">
+            <section class="panel">
+                <h2 class="section-title">DOWNLOAD MENU</h2>
+                <p class="subtitle" id="menuSubtitle">Select a version below and click "View Build" to inspect sizes and download options.</p>
+
+                <div class="server-list" id="serverList"></div>
+
+                <div class="dl-card" id="dlCard" style="display: none;">
+                    <div class="dl-header-top">
+                        <div class="dl-info-main">
+                            <span class="dl-tag" id="dlTag">LEGACY</span>
+                            <h3 id="dlTitle">Ros Legacy Installer</h3>
+                        </div>
+                        <div class="server-logo-container">
+                            <img id="serverLogoImg" src="" alt="Server Logo" class="server-logo">
+                        </div>
+                    </div>
+
+                    <p id="dlDesc" class="dl-desc">Server description goes here.</p>
+                    
+                    <div class="dl-meta">
+                        <div><span>ANDROID SIZE:</span> <strong id="androidSize">--</strong></div>
+                        <div><span>PC SIZE:</span> <strong id="pcSize">--</strong></div>
+                        <div><span>STATUS:</span> <strong id="dlHash">--</strong></div>
+                    </div>
+
+                    <div class="dl-action-dual">
+                        <div class="dl-group">
+                            <button id="downloadAndroidBtn" class="download-btn android-btn">DOWNLOAD ANDROID</button>
+                            <span id="androidStatus" class="dl-status">Ready</span>
+                        </div>
+                        <div class="dl-group">
+                            <button id="downloadPcBtn" class="download-btn pc-btn">DOWNLOAD PC</button>
+                            <span id="pcStatus" class="dl-status">Ready</span>
+                        </div>
+                    </div>
+
+                    <button id="backToListBtn" class="back-btn">← BACK TO VERSION LIST</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- TAB 3: DISCORD COMMUNITY -->
+    <main id="discordView" class="tab-view">
+        <div class="container narrow">
+            <section class="panel">
+                <h2 class="section-title">COMMUNITY DISCORD SERVERS</h2>
+                <p class="subtitle">Join the official Discord communities for each ROS version to get support, patch notes, and connect with players.</p>
+                <div class="server-list" id="discordList"></div>
+            </section>
+        </div>
+    </main>
+
+
+    <footer class="site-footer">
+        <!-- Social Action Buttons -->
+        <div class="footer-socials">
+            <a href="https://discord.gg/RGeFnjDHp" target="_blank" rel="noopener noreferrer" class="social-btn discord-social-btn">
+                <span>💬 Join Community Discord</span>
+            </a>
+            <a href="https://github.com/codedavevs" target="_blank" rel="noopener noreferrer" class="social-btn github-social-btn">
+                <span>⭐ View on GitHub</span>
+            </a>
+        </div>
+
+        <p>&copy; 2026 ROS Installer Hub. All Rights Reserved.</p>
+        <p class="footer-sub">Rules of Survival is a trademark of NetEase Games. This is an independent archival project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
