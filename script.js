@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             shortSummary: "Community revival package • PC & Android",
             desc: "Community revival package for Ros Origin with custom server configuration and launcher support.",
             androidSize: "--",
-            pcSize: "3.15 GB",
+            pcSize: "8.57 GB",
             hash: "CLOSE BETA TEST",
             logoUrl: "Pictures/Origin.png",
             androidUrl: "",
