@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Classic Rules of Survival build. Includes original textures and lobby setup for Ghillie Island and Fearless Fiord.",
             androidSize: "4.6 GB",
             pcSize: "7.70 GB",
-            hash: "OPEN BETA",
+            hash: "OPEN BETA TEST",
             logoUrl: "Pictures/Legacy.png",
             androidUrl: "https://dl.roslegacy.net/android/apk",
             pcUrl: "https://dl.roslegacy.net/full",
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span>${version.shortSummary}</span>
                         </div>
                     </div>
-                    <button class="view-btn" data-id="${version.id}">VIEW BUILD</button>
+                    <button class="view-btn" data-id="${version.id}">DOWNLOAD</button>
                 </div>
             `).join('');
         }
@@ -291,6 +291,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 muteBtn.textContent = "🔊";
             }
         });
+    }
+
+    // Mobile Hamburger Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('open');
+        });
+    }
+
+    function switchTab(targetId) {
+        navTabs.forEach(t => t.classList.toggle('active', t.dataset.target === targetId));
+        tabViews.forEach(v => v.classList.toggle('active', v.id === targetId));
+
+        // Auto-close mobile menu drawer on tab selection
+        if (menuToggle && mainNav) {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
     }
 
     renderServerLists();
