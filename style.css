@@ -22,7 +22,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Uses professional Google fonts with clean system fallbacks across all devices */
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -56,6 +59,7 @@ body {
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 2px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .logo span {
@@ -94,6 +98,7 @@ body {
     font-size: 0.95rem;
     padding: 0.15rem 0.3rem;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .audio-btn:hover {
@@ -115,19 +120,21 @@ body {
     color: var(--accent);
     border-radius: 4px;
     font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================
    3. BUTTONS & SMOOTH ANIMATIONS
    ========================================== */
-button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn {
+button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn, .social-btn {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active {
+button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active, .social-btn:active {
     transform: scale(0.96);
 }
 
@@ -145,6 +152,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .nav-tab.active, .nav-tab:hover {
@@ -220,22 +228,25 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     padding: 0.25rem 0.8rem;
     border-radius: 4px;
     margin-bottom: 0.8rem;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .banner-content h1 {
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 0.6rem;
     text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .banner-content h2 {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     margin-bottom: 0.8rem;
     text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .banner-content p {
@@ -258,6 +269,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border-radius: 4px;
     font-weight: 800;
     letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .primary-btn:hover {
@@ -265,7 +277,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 }
 
 /* ==========================================
-   5. CONTAINERS & REDESIGNED WEBSITE HUB
+   5. CONTAINERS & WEBSITE HUB
    ========================================== */
 .container {
     max-width: 1050px;
@@ -302,6 +314,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border: 1px solid rgba(16, 185, 129, 0.4);
     padding: 0.25rem 0.7rem;
     border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .section-divider {
@@ -311,12 +324,14 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 }
 
 .section-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--accent);
     letter-spacing: 1px;
     margin-bottom: 0.6rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
 }
 
 .subtitle {
@@ -325,14 +340,13 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     margin-bottom: 1.25rem;
 }
 
-/* Redesigned Website Hub Grid */
+/* Website Hub Grid */
 .website-hub-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.15rem;
 }
 
-/* Make the 5th featured card span cleanly across the bottom or balance neatly */
 .website-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -389,20 +403,22 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 }
 
 .web-card-title h4 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .web-card-tag {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--accent);
     letter-spacing: 0.8px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .web-status-pill {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     font-weight: 800;
     padding: 0.2rem 0.55rem;
     border-radius: 4px;
@@ -410,6 +426,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     color: var(--accent);
     border: 1px solid rgba(245, 158, 11, 0.35);
     white-space: nowrap;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .web-card-desc {
@@ -446,6 +463,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     font-size: 0.78rem;
     letter-spacing: 0.5px;
     flex-shrink: 0;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .web-visit-btn:hover {
@@ -495,6 +513,8 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 
 .server-row-info h4 {
     font-size: 1.05rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
 }
 
 .server-row-info span {
@@ -512,6 +532,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     font-size: 0.8rem;
     letter-spacing: 0.5px;
     flex-shrink: 0;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .view-btn:hover {
@@ -529,6 +550,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     font-size: 0.8rem;
     letter-spacing: 0.5px;
     flex-shrink: 0;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .discord-join-btn:hover {
@@ -574,17 +596,21 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 
 .dl-tag {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 800;
     background: rgba(245, 158, 11, 0.15);
     color: var(--accent);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     margin-bottom: 0.4rem;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .dl-info-main h3 {
     font-size: 1.35rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
 }
 
 .dl-desc {
@@ -631,6 +657,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border-radius: 4px;
     font-weight: 800;
     letter-spacing: 0.8px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .pc-btn {
@@ -666,6 +693,7 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .back-btn:hover {
@@ -674,16 +702,58 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 }
 
 /* ==========================================
-   7. FOOTER
+   7. FOOTER & SOCIALS
    ========================================== */
 .site-footer {
     text-align: center;
-    padding: 1.8rem 1rem;
+    padding: 2rem 1rem;
     margin-top: auto;
     background: var(--panel-bg);
     border-top: 2px solid var(--border-color);
     color: var(--text-main);
     font-size: 0.85rem;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.discord-social-btn {
+    background: var(--discord-color);
+    color: #ffffff;
+}
+
+.discord-social-btn:hover {
+    background: var(--discord-hover);
+    box-shadow: 0 0 12px rgba(88, 101, 242, 0.4);
+}
+
+.github-social-btn {
+    background: #24292e;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+}
+
+.github-social-btn:hover {
+    background: #2f363d;
+    border-color: var(--text-muted);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 .site-footer p {
@@ -769,69 +839,17 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
         text-align: center;
     }
 
-    .container {
-        padding: 0 1rem;
-    }
-}
-
-/* ==========================================
-   10. FOOTER SOCIAL BUTTONS
-   ========================================== */
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    flex-wrap: wrap;
-}
-
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.55rem 1.2rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-btn:active {
-    transform: scale(0.96);
-}
-
-/* Discord Footer Button */
-.discord-social-btn {
-    background: #5865F2;
-    color: #ffffff;
-}
-
-.discord-social-btn:hover {
-    background: #4752C4;
-    box-shadow: 0 0 12px rgba(88, 101, 242, 0.4);
-}
-
-/* GitHub Footer Button */
-.github-social-btn {
-    background: #24292e;
-    color: #ffffff;
-    border: 1px solid var(--border-color);
-}
-
-.github-social-btn:hover {
-    background: #2f363d;
-    border-color: var(--text-muted);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-}
-
-@media (max-width: 768px) {
     .footer-socials {
         flex-direction: column;
         padding: 0 1rem;
     }
+
     .social-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .container {
+        padding: 0 1rem;
     }
 }
