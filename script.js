@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // MAINTENANCE MODE CONFIGURATION
+    // Set to true  -> locks the site, hides tabs, displays maintenance screen.
+    // Set to false -> site operates normally.
+    // ==========================================
+    const isUnderMaintenance = false; 
+
+    // Handle Maintenance Mode UI Application
+    const statusBadge = document.querySelector('.status-badge');
+    const appContainer = document.getElementById('appContainer');
+    const maintenanceScreen = document.getElementById('maintenanceScreen');
+    const mainNav = document.getElementById('mainNav');
+    const menuToggle = document.getElementById('menuToggle');
+
+    if (isUnderMaintenance) {
+        if (statusBadge) {
+            statusBadge.textContent = "SERVER STATUS: UNDER MAINTENANCE";
+            statusBadge.style.borderColor = "var(--danger)";
+            statusBadge.style.color = "var(--danger)";
+            statusBadge.style.background = "rgba(239, 68, 68, 0.15)";
+        }
+        if (appContainer) appContainer.style.display = 'none';
+        if (maintenanceScreen) maintenanceScreen.style.display = 'flex';
+        if (mainNav) mainNav.style.display = 'none';
+        if (menuToggle) menuToggle.style.display = 'none';
+        return; // Halt further initialization during maintenance
+    }
+
     // 1. Navigation Tab Switcher
     const navTabs = document.querySelectorAll('.nav-tab');
     const tabViews = document.querySelectorAll('.tab-view');
@@ -6,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function switchTab(targetId) {
         navTabs.forEach(t => t.classList.toggle('active', t.dataset.target === targetId));
         tabViews.forEach(v => v.classList.toggle('active', v.id === targetId));
+
+        if (menuToggle && mainNav) {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('open');
+        }
     }
 
     navTabs.forEach(tab => {
@@ -109,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeVersion = null;
 
-    // Helper to extract clean domain name for display
     function getCleanDomain(url) {
         try {
             return new URL(url).hostname.replace('www.', '');
@@ -120,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Render All Views
     function renderServerLists() {
-        // Redesigned Home Website Hub
         if (homeServersGrid) {
             homeServersGrid.innerHTML = rosVersions.map(version => `
                 <div class="website-card">
@@ -147,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
         }
 
-        // Installer List
         if (serverListEl) {
             serverListEl.innerHTML = rosVersions.map(version => `
                 <div class="server-row">
@@ -163,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
         }
 
-        // Discord List
         if (discordListEl) {
             discordListEl.innerHTML = rosVersions.map(version => `
                 <div class="server-row">
@@ -180,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event Delegation for Dynamic Lists
+    // Event Delegation
     document.addEventListener('click', (e) => {
         const visitBtn = e.target.closest('.web-visit-btn');
         if (visitBtn && visitBtn.dataset.url) {
@@ -238,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         backToListBtn.addEventListener('click', () => {
             dlCardEl.style.display = "none";
             serverListEl.style.display = "flex";
-            menuSubtitleEl.textContent = 'Select a version below and click "View Build" to inspect sizes and download options.';
+            menuSubtitleEl.textContent = 'Select a version below and click "Download" to inspect sizes and download options.';
         });
     }
 
@@ -294,25 +323,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile Hamburger Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             mainNav.classList.toggle('open');
         });
-    }
-
-    function switchTab(targetId) {
-        navTabs.forEach(t => t.classList.toggle('active', t.dataset.target === targetId));
-        tabViews.forEach(v => v.classList.toggle('active', v.id === targetId));
-
-        // Auto-close mobile menu drawer on tab selection
-        if (menuToggle && mainNav) {
-            menuToggle.classList.remove('active');
-            mainNav.classList.remove('open');
-        }
     }
 
     renderServerLists();
