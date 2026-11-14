@@ -269,17 +269,17 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 
 .tab-view.active {
     display: block;
-    animation: tabFadeIn 0.35s cubic-bezier(0.16, 2, 0.5, 1) forwards;
+    animation: tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     flex: 1;
 }
 
 @keyframes tabFadeIn {
-    0% { opacity: 0; transform: translateY(70px); }
+    0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================
-   5. CINEMATIC BANNERS & WEBSITE HUB
+   5. CINEMATIC BANNERS & SERVER SHOWCASE
    ========================================== */
 .banner {
     position: relative;
@@ -297,7 +297,6 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     background-image: url('Pictures/Photo1.jpg');
 }
 
-/* ABOUT ROS BANNER STYLING */
 .about-banner {
     height: 360px;
     background-image: url('Pictures/Rules of Survival lobby background.jpg');
@@ -373,6 +372,165 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     font-family: 'Rajdhani', sans-serif;
 }
 
+/* Official Server Websites - Cinematic Alternating Banners */
+.server-showcase-container {
+    width: 100%;
+    margin: 3rem 0;
+}
+
+.server-showcase-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.server-showcase-header h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 0.6rem;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-main);
+}
+
+.server-showcase-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.server-cinematic-banner {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 3px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+}
+
+.server-cinematic-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.5), rgba(13, 17, 23, 0.92));
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.server-cinematic-content {
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.server-cinematic-banner.swap .server-cinematic-content {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.server-cinematic-banner.swap .server-text-block {
+    align-items: flex-end;
+}
+
+.server-logo-pane {
+    width: 90px;
+    height: 90px;
+    background: rgba(22, 27, 34, 0.85);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.server-logo-pane img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.server-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.server-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.server-cinematic-banner.swap .server-meta-row {
+    justify-content: flex-end;
+}
+
+.server-text-block h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.server-text-block p {
+    font-size: 0.95rem;
+    color: #d0d7de;
+    line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.server-portal-btn {
+    display: inline-block;
+    padding: 0.6rem 1.6rem;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    width: fit-content;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.server-portal-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.web-status-pill {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    white-space: nowrap;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* ==========================================
+   6. CONTAINERS, PANELS & DOWNLOAD ROWS
+   ========================================== */
 .container {
     max-width: 1050px;
     margin: 2rem auto;
@@ -389,32 +547,6 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.75rem;
-}
-
-.section-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.hub-counter {
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--success);
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    padding: 0.25rem 0.7rem;
-    border-radius: 4px;
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.section-divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: 1rem 0 1.5rem 0;
 }
 
 .section-title {
@@ -434,140 +566,6 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     margin-bottom: 1.25rem;
 }
 
-/* Website Hub Grid */
-.website-hub-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.15rem;
-}
-
-.website-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
-    padding: 1.25rem 1.4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-}
-
-.website-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-}
-
-.website-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-}
-
-.web-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.web-card-identity {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-}
-
-.web-logo-box {
-    width: 50px;
-    height: 50px;
-    background: var(--panel-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.web-logo-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.web-card-title h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-main);
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.web-card-tag {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.8px;
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.web-status-pill {
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 0.2rem 0.55rem;
-    border-radius: 4px;
-    background: rgba(245, 158, 11, 0.12);
-    color: var(--accent);
-    border: 1px solid rgba(245, 158, 11, 0.35);
-    white-space: nowrap;
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.web-card-desc {
-    font-size: 0.86rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-}
-
-.web-card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.8rem;
-    padding-top: 0.85rem;
-    border-top: 1px solid rgba(48, 54, 61, 0.6);
-}
-
-.web-domain-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-family: monospace;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.web-visit-btn {
-    padding: 0.55rem 1.1rem;
-    background: rgba(245, 158, 11, 0.12);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    border-radius: 4px;
-    font-weight: 800;
-    font-size: 0.78rem;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-    font-family: 'Rajdhani', sans-serif;
-}
-
-.web-visit-btn:hover {
-    background: var(--accent);
-    color: #000;
-}
-
-/* ==========================================
-   6. SERVER ROWS (INSTALLER & DISCORD)
-   ========================================== */
 .server-list {
     display: flex;
     flex-direction: column;
@@ -962,8 +960,30 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
         font-size: 0.9rem;
     }
 
-    .website-hub-grid {
-        grid-template-columns: 1fr;
+    .server-cinematic-banner {
+        height: auto;
+        padding: 2.5rem 0;
+    }
+
+    .server-cinematic-content, 
+    .server-cinematic-banner.swap .server-cinematic-content {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .server-text-block, 
+    .server-cinematic-banner.swap .server-text-block {
+        align-items: center !important;
+    }
+
+    .server-meta-row, 
+    .server-cinematic-banner.swap .server-meta-row {
+        justify-content: center !important;
+    }
+
+    .server-logo-pane {
+        width: 75px;
+        height: 75px;
     }
 
     .dl-action-dual {

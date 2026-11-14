@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => switchTab(btn.dataset.targetTab));
     });
 
-    // 2. Data Source (All 5 ROS Versions)
+    // 2. Data Source (All 5 ROS Versions with Custom Backgrounds)
     const rosVersions = [
         {
             id: "legacy",
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "7.70 GB",
             hash: "OPEN BETA TEST",
             logoUrl: "Pictures/Legacy.png",
+            bgUrl: "Pictures/Legacy 1.png", // <--- Change Legacy background here
             androidUrl: "https://dl.roslegacy.net/android/apk",
             pcUrl: "https://dl.roslegacy.net/full",
             websiteUrl: "https://roslegacy.net/",
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "8.57 GB",
             hash: "CLOSE BETA TEST",
             logoUrl: "Pictures/Origin.png",
+            bgUrl: "Pictures/Origin 1.png", // <--- Change Origin background here
             androidUrl: "",
             pcUrl: "https://www.mediafire.com/file_premium/p3otmtt01loahbh/ROS_Origin_Full_Setup_11_10_2026.zip/file?action=check",
             websiteUrl: "https://rosorigin.com/",
@@ -91,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "1.84 GB",
             hash: "OPEN BETA TEST",
             logoUrl: "Pictures/Venas.png",
+            bgUrl: "Pictures/Photo1.jpg", // <--- Change Venas background here
             androidUrl: "",
             pcUrl: "https://www.mediafire.com/file/emik21f540cbspn/ROS_VENAS_Setup_Full.exe/file?action=check",
             websiteUrl: "https://www.venasnetwork.com/",
@@ -106,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "5.80 GB",
             hash: "OFFICIAL RELEASE",
             logoUrl: "Pictures/Infinity.png",
+            bgUrl: "Pictures/Infinity 1.png", // <--- Change Infinity background here
             androidUrl: "",
             pcUrl: "https://dl.rosinfinity.com/RosInfinity-client-1.6.0.zip",
             websiteUrl: "https://rosinfinity.com/#top",
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "8.80 GB",
             hash: "OFFICIAL RELEASE",
             logoUrl: "Pictures/Reborn.png",
+            bgUrl: "Pictures/Reborn 1.png", // <--- Change Reborn background here
             androidUrl: "",
             pcUrl: "https://cdn.rosrebornofficial.com/tb-e10fe767786c090c1ce5/RosRebornLauncher.zip",
             websiteUrl: "https://rosrebornofficial.com/",
@@ -142,40 +147,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeVersion = null;
 
-    function getCleanDomain(url) {
-        try {
-            return new URL(url).hostname.replace('www.', '');
-        } catch {
-            return 'Official Portal';
-        }
-    }
-
-    // 3. Render All Views
+    // 3. Render All Views with Custom Cinematic Server Banners
     function renderServerLists() {
         if (homeServersGrid) {
-            homeServersGrid.innerHTML = rosVersions.map(version => `
-                <div class="website-card">
-                    <div>
-                        <div class="web-card-header">
-                            <div class="web-card-identity">
-                                <div class="web-logo-box">
+            homeServersGrid.innerHTML = rosVersions.map((version, index) => {
+                const isSwap = index % 2 === 1; // Alternates layout direction (zigzag)
+                return `
+                    <div class="server-cinematic-banner ${isSwap ? 'swap' : ''}" style="background-image: url('${version.bgUrl}');">
+                        <div class="server-cinematic-overlay">
+                            <div class="server-cinematic-content">
+                                <div class="server-logo-pane">
                                     <img src="${version.logoUrl}" alt="${version.title}" onerror="this.style.display='none'">
                                 </div>
-                                <div class="web-card-title">
-                                    <h4>${version.title}</h4>
-                                    <span class="web-card-tag">[ ${version.tag} ]</span>
+                                <div class="server-text-block">
+                                    <div class="server-meta-row">
+                                        <span class="banner-tag">[ ${version.tag} ]</span>
+                                        <span class="web-status-pill">${version.hash}</span>
+                                    </div>
+                                    <h3>${version.title.toUpperCase()}</h3>
+                                    <p>${version.desc}</p>
+                                    <button class="server-portal-btn web-visit-btn" data-url="${version.websiteUrl}">VIEW WEBSITE ↗</button>
                                 </div>
                             </div>
-                            <span class="web-status-pill">${version.hash}</span>
                         </div>
-                        <p class="web-card-desc" style="margin-top: 0.85rem;">${version.desc}</p>
                     </div>
-                    <div class="web-card-footer">
-                        <span class="web-domain-label">${getCleanDomain(version.websiteUrl)}</span>
-                        <button class="web-visit-btn" data-url="${version.websiteUrl}">VIEW WEBSITE ↗</button>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         if (serverListEl) {
@@ -209,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event Delegation
+    // Global Event Delegation for Dynamic Buttons
     document.addEventListener('click', (e) => {
         const visitBtn = e.target.closest('.web-visit-btn');
         if (visitBtn && visitBtn.dataset.url) {

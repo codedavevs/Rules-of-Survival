@@ -39,7 +39,7 @@
         <div class="header-right">
             <div class="audio-hud">
                 <audio id="bgMusic" loop>
-                    <source src="Pictures/background-music.wav" type="audio/wav">
+                    <source src="Ros.wav" type="audio/wav">
                 </audio>
                 <button id="muteBtn" class="audio-btn" title="Mute / Unmute">🔊</button>
                 <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="0.3" title="Volume">
@@ -77,25 +77,22 @@
             <section class="banner about-banner">
                 <div class="banner-overlay">
                     <div class="banner-content">
-                    <span class="banner-tag">ABOUT</span>
-                    <h2>ABOUT RULES OF SURVIVAL</h2>
-                    <p>Originally developed by NetEase Games, Rules of Survival pioneered massive 300-player battle royale combat across iconic maps like Ghillie Island and Fearless Fiord. Following official server closures, this archival hub preserves legacy clients and community revival builds so players can drop back in.</p>
+                        <span class="banner-tag">ABOUT</span>
+                        <h2>ABOUT RULES OF SURVIVAL</h2>
+                        <p>Originally developed by NetEase Games, Rules of Survival pioneered massive 300-player battle royale combat across iconic maps like Ghillie Island and Fearless Fiord. Following official server closures, this archival hub preserves legacy clients and community revival builds so players can drop back in.</p>
                     </div>
                 </div>
             </section>
             
-            <div class="container">
-                <section class="panel">
-                    <div class="section-header-flex">
-                        <div>
-                            <h2 class="section-title" style="border: none; margin-bottom: 0.2rem; padding-bottom: 0;">OFFICIAL SERVER WEBSITES</h2>
-                            <p class="subtitle" style="margin-bottom: 0;">Direct access to all 5 community revival portals, patch logs, and account registration pages.</p>
-                        </div>
-                        <span class="hub-counter">5 PORTALS ONLINE</span>
-                    </div>
-                    <div class="section-divider"></div>
-                    <div class="website-hub-grid" id="homeServersGrid"></div>
-                </section>
+            <!-- OFFICIAL SERVER WEBSITES - CINEMATIC SWAP LAYOUT -->
+            <div class="server-showcase-container">
+                <div class="server-showcase-header">
+                    <span class="banner-tag">PORTALS</span>
+                    <h2>OFFICIAL SERVER WEBSITES</h2>
+                    <p>Direct access to all 5 community revival portals, patch logs, and account registration pages.</p>
+                </div>
+                
+                <div id="homeServersGrid"></div>
             </div>
         </main>
 
@@ -159,10 +156,10 @@
     <footer class="site-footer">
         <div class="footer-socials">
             <a href="https://discord.gg/wT5gK9wQ8" target="_blank" rel="noopener noreferrer" class="social-btn discord-social-btn">
-                <span>💬 Join Community Discord</span>
+                <span>💬 CodeDave! Discord</span>
             </a>
             <a href="https://github.com/codedavevs" target="_blank" rel="noopener noreferrer" class="social-btn github-social-btn">
-                <span>⭐ View on GitHub</span>
+                <span>⭐ My GitHub</span>
             </a>
         </div>
         <p>&copy; Code Dave!</p>
