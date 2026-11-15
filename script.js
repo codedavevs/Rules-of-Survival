@@ -145,6 +145,22 @@ document.addEventListener('DOMContentLoaded', () => {
             pcUrl: "",
             websiteUrl: "https://rosnewgen.com/",
             discordUrl: "https://discord.gg/dGnZMCWdu"
+        },
+        {
+            id: "server7",
+            tag: "Reload",
+            title: "Ros: Reload",
+            shortSummary: "Custom revival server • PC & Android",
+            desc: "Better Gameplay Awaits You!",
+            androidSize: "--",
+            pcSize: "6.0 GB",
+            hash: "OPEN BETA TEST",
+            logoUrl: "Pictures/Reload.png",
+            bgUrl: "Pictures/Reload 1.jpg",
+            androidUrl: "",
+            pcUrl: "https://drive.google.com/file/d/12CWpYwNaGywuw5903W5IeWPoXuFTWypw/view",
+            websiteUrl: "https://web.facebook.com/rosreloaded/?_rdc=1&_rdr#",
+            discordUrl: "https://discord.gg/vA2EnvHW2"
         }
     ];
 
