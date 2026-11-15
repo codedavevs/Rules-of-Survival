@@ -228,18 +228,18 @@ body {
 /* ==========================================
    4. BUTTONS & ANIMATIONS
    ========================================== */
-button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn, .social-btn {
+button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn, .social-btn, .server-portal-btn {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active, .social-btn:active {
+button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active, .social-btn:active, .server-portal-btn:active {
     transform: scale(0.96);
 }
 
-.primary-btn:hover, .web-visit-btn:hover, .download-btn:hover {
+.primary-btn:hover, .web-visit-btn:hover, .download-btn:hover, .server-portal-btn:hover {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
@@ -269,12 +269,12 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 
 .tab-view.active {
     display: block;
-    animation: tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: tabFadeIn 0.35s cubic-bezier(0.16, -1, 0.3, 2) forwards;
     flex: 1;
 }
 
 @keyframes tabFadeIn {
-    0% { opacity: 0; transform: translateY(15px); }
+    0% { opacity: 0; transform: translateY(70px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -290,27 +290,29 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border-top: 3px solid var(--accent);
     border-bottom: 3px solid var(--accent);
     margin: 20px 0;
+    display: flex;
+    align-items: center;
 }
 
 .hero-banner {
-    height: 420px;
+    min-height: 400px;
     background-image: url('Pictures/Photo1.jpg');
 }
 
 .about-banner {
-    height: 360px;
+    min-height: 340px;
     background-image: url('Pictures/Rules of Survival lobby background.jpg');
 }
 
 .banner-overlay {
     width: 100%;
-    height: 100%;
+    min-height: inherit;
     background: linear-gradient(to bottom, rgba(13, 17, 23, 0.45), rgba(13, 17, 23, 0.94));
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 1.5rem;
+    padding: 2.5rem 1.5rem;
 }
 
 .banner-content {
@@ -402,28 +404,28 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 .server-cinematic-banner {
     position: relative;
     width: 100%;
-    height: 380px;
-    background-position: center;
+    min-height: 360px;
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     border-top: 3px solid var(--accent);
     border-bottom: 3px solid var(--accent);
     margin: 25px 0;
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
 .server-cinematic-overlay {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.5), rgba(13, 17, 23, 0.92));
+    min-height: inherit;
+    background: linear-gradient(to bottom, rgba(13, 17, 23, 0.45), rgba(13, 17, 23, 0.92));
     display: flex;
     align-items: center;
-    padding: 0 5%;
+    padding: 2.5rem 5%;
 }
 
 .server-cinematic-content {
-    max-width: 800px;
+    max-width: 820px;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -473,6 +475,10 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     gap: 0.8rem;
 }
 
+.server-meta-row .banner-tag {
+    margin-bottom: 0;
+}
+
 .server-cinematic-banner.swap .server-meta-row {
     justify-content: flex-end;
 }
@@ -495,20 +501,18 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 
 .server-portal-btn {
     display: inline-block;
-    padding: 0.6rem 1.6rem;
+    padding: 0.65rem 1.6rem;
     background: var(--accent);
     color: #000;
     border: none;
     border-radius: 4px;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     letter-spacing: 1px;
     font-family: 'Rajdhani', sans-serif;
     text-decoration: none;
     margin-top: 0.5rem;
     width: fit-content;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
-    transition: background-color 0.2s, transform 0.15s;
 }
 
 .server-portal-btn:hover {
@@ -517,13 +521,13 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 }
 
 .web-status-pill {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    padding: 0.2rem 0.55rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 4px;
-    background: rgba(245, 158, 11, 0.12);
+    background: rgba(245, 158, 11, 0.15);
     color: var(--accent);
-    border: 1px solid rgba(245, 158, 11, 0.35);
+    border: 1px solid rgba(245, 158, 11, 0.4);
     white-space: nowrap;
     font-family: 'Rajdhani', sans-serif;
 }
@@ -936,54 +940,73 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
         padding: 0.65rem;
     }
 
-    .hero-banner {
-        height: 320px;
-    }
-
+    .hero-banner,
     .about-banner {
-        height: 300px;
+        min-height: 280px;
+        margin: 15px 0;
     }
 
-    .banner-content {
-        padding: 0 0.5rem;
+    .banner-overlay {
+        padding: 2rem 1rem;
     }
 
     .banner-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
     }
 
     .banner-content h2 {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 
     .banner-content p {
         font-size: 0.9rem;
     }
 
+    /* Mobile Cinematic Server Banners (Zero Black Gaps) */
     .server-cinematic-banner {
-        height: auto;
-        padding: 2.5rem 0;
+        min-height: unset;
+        margin: 15px 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .server-cinematic-overlay {
+        padding: 2.2rem 1.2rem;
     }
 
     .server-cinematic-content, 
     .server-cinematic-banner.swap .server-cinematic-content {
-        flex-direction: column !important;
-        text-align: center !important;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
     }
 
     .server-text-block, 
     .server-cinematic-banner.swap .server-text-block {
-        align-items: center !important;
+        align-items: center;
     }
 
     .server-meta-row, 
     .server-cinematic-banner.swap .server-meta-row {
-        justify-content: center !important;
+        justify-content: center;
     }
 
     .server-logo-pane {
-        width: 75px;
-        height: 75px;
+        width: 72px;
+        height: 72px;
+    }
+
+    .server-text-block h3 {
+        font-size: 1.4rem;
+    }
+
+    .server-text-block p {
+        font-size: 0.9rem;
+    }
+
+    .server-portal-btn {
+        width: 100%;
+        text-align: center;
     }
 
     .dl-action-dual {

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const isUnderMaintenance = false; 
 
-    // Handle Maintenance Mode UI Application
     const statusBadge = document.querySelector('.status-badge');
     const appContainer = document.getElementById('appContainer');
     const maintenanceScreen = document.getElementById('maintenanceScreen');
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (maintenanceScreen) maintenanceScreen.style.display = 'flex';
         if (mainNav) mainNav.style.display = 'none';
         if (menuToggle) menuToggle.style.display = 'none';
-        return; // Halt further initialization during maintenance
+        return;
     }
 
     // 1. Navigation Tab Switcher
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => switchTab(btn.dataset.targetTab));
     });
 
-    // 2. Data Source (All 5 ROS Versions with Custom Backgrounds)
+    // 2. Data Source (All 6 ROS Versions with Individual Background Pictures)
     const rosVersions = [
         {
             id: "legacy",
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "7.70 GB",
             hash: "OPEN BETA TEST",
             logoUrl: "Pictures/Legacy.png",
-            bgUrl: "Pictures/Legacy 1.png", // <--- Change Legacy background here
+            bgUrl: "Pictures/Legacy 1.png",
             androidUrl: "https://dl.roslegacy.net/android/apk",
             pcUrl: "https://dl.roslegacy.net/full",
             websiteUrl: "https://roslegacy.net/",
@@ -71,13 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "origin",
             tag: "ORIGIN",
             title: "Ros Origin",
-            shortSummary: "Community revival package • PC & Android",
+            shortSummary: "Community revival package • PC",
             desc: "Community revival package for Ros Origin with custom server configuration and launcher support.",
             androidSize: "--",
             pcSize: "8.57 GB",
             hash: "CLOSE BETA TEST",
             logoUrl: "Pictures/Origin.png",
-            bgUrl: "Pictures/Origin 1.png", // <--- Change Origin background here
+            bgUrl: "Pictures/Origin 1.png",
             androidUrl: "",
             pcUrl: "https://www.mediafire.com/file_premium/p3otmtt01loahbh/ROS_Origin_Full_Setup_11_10_2026.zip/file?action=check",
             websiteUrl: "https://rosorigin.com/",
@@ -87,15 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "venas",
             tag: "VENAS",
             title: "Ros Venas",
-            shortSummary: "Custom skins & updated lobby UI • PC & Android",
+            shortSummary: "Custom skins & updated lobby UI • PC",
             desc: "Ros Venas installer package featuring custom skins, updated lobby UI, and private server connectivity.",
             androidSize: "--",
-            pcSize: "1.84 GB",
+            pcSize: "ON GOING DEVELOPMENT",
             hash: "OPEN BETA TEST",
             logoUrl: "Pictures/Venas.png",
-            bgUrl: "Pictures/Photo1.jpg", // <--- Change Venas background here
+            bgUrl: "Pictures/Photo1.jpg",
             androidUrl: "",
-            pcUrl: "https://www.mediafire.com/file/emik21f540cbspn/ROS_VENAS_Setup_Full.exe/file?action=check",
+            pcUrl: "",
             websiteUrl: "https://www.venasnetwork.com/",
             discordUrl: "https://discord.gg/dGnZMCWdu"
         },
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pcSize: "5.80 GB",
             hash: "OFFICIAL RELEASE",
             logoUrl: "Pictures/Infinity.png",
-            bgUrl: "Pictures/Infinity 1.png", // <--- Change Infinity background here
+            bgUrl: "Pictures/Infinity 1.png",
             androidUrl: "",
             pcUrl: "https://dl.rosinfinity.com/RosInfinity-client-1.6.0.zip",
             websiteUrl: "https://rosinfinity.com/#top",
@@ -119,17 +118,33 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "reborn",
             tag: "REBORN V2",
             title: "Ros Reborn",
-            shortSummary: "Competitive lobbies & modern launcher • PC & Android",
+            shortSummary: "Competitive lobbies & modern launcher • PC ",
             desc: "Newest private server iteration featuring modern anti-cheat integration and custom competitive lobbies.",
             androidSize: "--",
             pcSize: "8.80 GB",
             hash: "OFFICIAL RELEASE",
             logoUrl: "Pictures/Reborn.png",
-            bgUrl: "Pictures/Reborn 1.png", // <--- Change Reborn background here
+            bgUrl: "Pictures/Reborn 1.png",
             androidUrl: "",
             pcUrl: "https://cdn.rosrebornofficial.com/tb-e10fe767786c090c1ce5/RosRebornLauncher.zip",
             websiteUrl: "https://rosrebornofficial.com/",
             discordUrl: "https://discord.gg/D3myccWTK"
+        },
+        {
+            id: "newgen",
+            tag: "NEW GEN",
+            title: "Ros New Gen",
+            shortSummary: "Next-generation revival build Android & IOS",
+            desc: "Enhanced private server edition featuring updated visual shaders, balanced gunplay, and custom seasonal events.",
+            androidSize: "TO BE ANNOUNCE",
+            pcSize: "--",
+            hash: "ALPHA TEST",
+            logoUrl: "Pictures/NewGen.png",
+            bgUrl: "Pictures/Rules of Survival lobby background.jpg",
+            androidUrl: "",
+            pcUrl: "",
+            websiteUrl: "https://rosnewgen.com/",
+            discordUrl: "https://discord.gg/dGnZMCWdu"
         }
     ];
 
@@ -147,11 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeVersion = null;
 
-    // 3. Render All Views with Custom Cinematic Server Banners
+    // 3. Render All Views
     function renderServerLists() {
         if (homeServersGrid) {
             homeServersGrid.innerHTML = rosVersions.map((version, index) => {
-                const isSwap = index % 2 === 1; // Alternates layout direction (zigzag)
+                const isSwap = index % 2 === 1;
+                const hasWebsite = Boolean(version.websiteUrl && version.websiteUrl.trim());
                 return `
                     <div class="server-cinematic-banner ${isSwap ? 'swap' : ''}" style="background-image: url('${version.bgUrl}');">
                         <div class="server-cinematic-overlay">
@@ -166,7 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                     <h3>${version.title.toUpperCase()}</h3>
                                     <p>${version.desc}</p>
-                                    <button class="server-portal-btn web-visit-btn" data-url="${version.websiteUrl}">VIEW WEBSITE ↗</button>
+                                    ${hasWebsite 
+                                        ? `<button class="server-portal-btn web-visit-btn" data-url="${version.websiteUrl}"> VISIT WEBSITE ↗</button>` 
+                                        : `<button class="server-portal-btn" style="opacity: 0.6; cursor: not-allowed;" disabled>PORTAL COMING SOON</button>`
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -191,22 +210,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (discordListEl) {
-            discordListEl.innerHTML = rosVersions.map(version => `
-                <div class="server-row">
-                    <div class="server-row-left">
-                        <img src="${version.logoUrl}" alt="${version.title}" class="row-logo" onerror="this.style.display='none'">
-                        <div class="server-row-info">
-                            <h4>${version.title} Community</h4>
-                            <span>Official Discord Server • [ ${version.tag} ]</span>
+            discordListEl.innerHTML = rosVersions.map(version => {
+                const hasDiscord = Boolean(version.discordUrl && version.discordUrl.trim());
+                return `
+                    <div class="server-row">
+                        <div class="server-row-left">
+                            <img src="${version.logoUrl}" alt="${version.title}" class="row-logo" onerror="this.style.display='none'">
+                            <div class="server-row-info">
+                                <h4>${version.title} Community</h4>
+                                <span>Official Discord Server • [ ${version.tag} ]</span>
+                            </div>
                         </div>
+                        ${hasDiscord 
+                            ? `<button class="discord-join-btn" data-url="${version.discordUrl}">JOIN DISCORD</button>`
+                            : `<button class="discord-join-btn" style="opacity: 0.6; cursor: not-allowed;" disabled>COMING SOON</button>`
+                        }
                     </div>
-                    <button class="discord-join-btn" data-url="${version.discordUrl}">JOIN DISCORD</button>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
     }
 
-    // Global Event Delegation for Dynamic Buttons
+    // Event Delegation
     document.addEventListener('click', (e) => {
         const visitBtn = e.target.closest('.web-visit-btn');
         if (visitBtn && visitBtn.dataset.url) {
@@ -221,11 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const discordBtn = e.target.closest('.discord-join-btn');
-        if (discordBtn) {
-            const url = discordBtn.dataset.url;
-            if (url && url.trim() !== "") {
-                window.open(url, '_blank', 'noopener,noreferrer');
-            }
+        if (discordBtn && discordBtn.dataset.url) {
+            window.open(discordBtn.dataset.url, '_blank', 'noopener,noreferrer');
         }
     });
 
