@@ -34,6 +34,7 @@
             <button class="nav-tab active" data-target="tacticalView">Home</button>
             <button class="nav-tab" data-target="downloadView">Installer</button>
             <button class="nav-tab" data-target="discordView">Discord</button>
+            <button class="nav-tab" data-target="otherProjectsView">Other Projects</button>
         </nav>
 
         <div class="header-right">
@@ -148,6 +149,47 @@
                     <h2 class="section-title">COMMUNITY DISCORD SERVERS</h2>
                     <p class="subtitle">Join the official Discord communities for each ROS version to get support, patch notes, and connect with players.</p>
                     <div class="server-list" id="discordList"></div>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 4: OTHER PROJECTS (WITH CODE DAVE & BEYBLADE BURST SUB-TABS) -->
+        <main id="otherProjectsView" class="tab-view">
+            <div class="container">
+                <section class="panel">
+                    <div class="sub-nav-container">
+                        <h2 class="section-title" style="margin-bottom: 0; border: none; padding: 0;">OTHER PROJECTS</h2>
+                        <div class="sub-nav-tabs">
+                            <button class="sub-tab active" data-subtarget="codeDaveSub">Code Dave</button>
+                            <button class="sub-tab" data-subtarget="beybladeSub">Beyblade Burst</button>
+                        </div>
+                    </div>
+                    <div class="section-divider"></div>
+
+                    <!-- SUB-TAB 1: CODE DAVE -->
+                    <div id="codeDaveSub" class="sub-view active">
+                        <div class="project-showcase-card">
+                            <span class="banner-tag">DEVELOPER HUB</span>
+                            <h3>CODE DAVE</h3>
+                            <p>A Game Development Website Develop by Code Dave using Godot v4.0.</p>
+                            <p>Visit now and check the game develops with me.</p>
+                            <div class="project-actions">
+                                <a href="https://codedavevs.github.io/Dave./" target="_blank" rel="noopener noreferrer" class="server-portal-btn">VIEW WEBSITE ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUB-TAB 2: BEYBLADE BURST -->
+                    <div id="beybladeSub" class="sub-view">
+                        <div class="project-showcase-card">
+                            <span class="banner-tag">ARCHIVE & GALLERY</span>
+                            <h3>BEYBLADE BURST</h3>
+                            <p>A dedicated multi-season streaming and character gallery website celebrating all 7 seasons of the Beyblade Burst franchise.</p>
+                            <div class="project-actions">
+                                <a href="https://codedavevs.github.io/Burst/" target="_blank" rel="noopener noreferrer" class="server-portal-btn">VIEW WEBSITE ↗</a>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>

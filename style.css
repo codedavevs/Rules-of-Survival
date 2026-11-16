@@ -228,14 +228,14 @@ body {
 /* ==========================================
    4. BUTTONS & ANIMATIONS
    ========================================== */
-button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .back-btn, .discord-join-btn, .social-btn, .server-portal-btn {
+button, .primary-btn, .web-visit-btn, .view-btn, .download-btn, .nav-tab, .sub-tab, .back-btn, .discord-join-btn, .social-btn, .server-portal-btn {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
-button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .back-btn:active, .discord-join-btn:active, .social-btn:active, .server-portal-btn:active {
+button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .download-btn:active, .nav-tab:active, .sub-tab:active, .back-btn:active, .discord-join-btn:active, .social-btn:active, .server-portal-btn:active {
     transform: scale(0.96);
 }
 
@@ -259,6 +259,81 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
 .nav-tab.active, .nav-tab:hover {
     background: var(--accent);
     color: #000;
+}
+
+/* Sub-Tab Navigation for Other Projects */
+.sub-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sub-nav-tabs {
+    display: flex;
+    gap: 0.4rem;
+    background: var(--bg-dark);
+    padding: 0.25rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.sub-tab {
+    padding: 0.45rem 1.1rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.sub-tab.active, .sub-tab:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+.sub-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.sub-view.active {
+    display: block;
+    animation: tabFadeIn 0.3s ease forwards;
+}
+
+.project-showcase-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-showcase-card h3 {
+    font-size: 1.6rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.project-showcase-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 700px;
+}
+
+.project-actions {
+    margin-top: 0.5rem;
 }
 
 .tab-view {
@@ -551,6 +626,12 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.75rem;
+}
+
+.section-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 1.2rem 0;
 }
 
 .section-title {
@@ -938,6 +1019,21 @@ button:active, .primary-btn:active, .web-visit-btn:active, .view-btn:active, .do
         width: 100%;
         text-align: center;
         padding: 0.65rem;
+    }
+
+    .sub-nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sub-nav-tabs {
+        width: 100%;
+        display: flex;
+    }
+
+    .sub-tab {
+        flex: 1;
+        text-align: center;
     }
 
     .hero-banner,

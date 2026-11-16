@@ -48,7 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => switchTab(btn.dataset.targetTab));
     });
 
-    // 2. Data Source (All 6 ROS Versions with Individual Background Pictures)
+    // Sub-Tab Switcher for Other Projects (Code Dave & Beyblade Burst)
+    const subTabs = document.querySelectorAll('.sub-tab');
+    const subViews = document.querySelectorAll('.sub-view');
+
+    subTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetSubId = tab.dataset.subtarget;
+            subTabs.forEach(t => t.classList.toggle('active', t === tab));
+            subViews.forEach(v => v.classList.toggle('active', v.id === targetSubId));
+        });
+    });
+
+    // 2. Data Source (All 7 ROS Versions)
     const rosVersions = [
         {
             id: "legacy",
@@ -148,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: "server7",
-            tag: "Reload",
-            title: "Ros: Reload",
+            tag: "Reloaded",
+            title: "Ros: Reloaded",
             shortSummary: "Custom revival server • PC & Android",
             desc: "Better Gameplay Awaits You!",
             androidSize: "--",
@@ -158,8 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
             logoUrl: "Pictures/Reload.png",
             bgUrl: "Pictures/Reload 1.jpg",
             androidUrl: "",
-            pcUrl: "https://drive.google.com/file/d/12CWpYwNaGywuw5903W5IeWPoXuFTWypw/view",
-            websiteUrl: "https://web.facebook.com/rosreloaded/?_rdc=1&_rdr#",
+            pcUrl: "https://www.mediafire.com/file/1u1amv315b5g1u1/RoSReloaded_OpenBeta_1.0_Setup.zip/file?action=check",
+            websiteUrl: "https://rosreloaded.com/",
             discordUrl: "https://discord.gg/vA2EnvHW2"
         }
     ];
@@ -199,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <h3>${version.title.toUpperCase()}</h3>
                                     <p>${version.desc}</p>
                                     ${hasWebsite 
-                                        ? `<button class="server-portal-btn web-visit-btn" data-url="${version.websiteUrl}"> VISIT WEBSITE ↗</button>` 
+                                        ? `<button class="server-portal-btn web-visit-btn" data-url="${version.websiteUrl}">VISIT WEBSITE ↗</button>` 
                                         : `<button class="server-portal-btn" style="opacity: 0.6; cursor: not-allowed;" disabled>PORTAL COMING SOON</button>`
                                     }
                                 </div>
