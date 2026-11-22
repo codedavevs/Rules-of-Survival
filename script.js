@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "New Ros Awaits You With Android Support!",
             androidSize: "IOS FOR NOW! DOWLOAD USING IOS DEVICE.",
             pcSize: "6.0 GB",
-            hash: "OPEN BETA TEST",
+            hash: "CLOSE BETA TEST",
             logoUrl: "Pictures/Ankor.png",
             bgUrl: "Pictures/Ankor 1.png",
             androidUrl: "https://rosangkor.com/",
