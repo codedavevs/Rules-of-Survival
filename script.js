@@ -148,12 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Ros New Gen",
             shortSummary: "Next-generation revival build Android & IOS",
             desc: "Enhanced private server edition featuring updated visual shaders, balanced gunplay, and custom seasonal events.",
-            androidSize: "TO BE ANNOUNCE",
+            androidSize: "4.5 GB",
             pcSize: "--",
             hash: "ALPHA TEST",
             logoUrl: "Pictures/NewGen.png",
             bgUrl: "Pictures/Rules of Survival lobby background.jpg",
-            androidUrl: "",
+            androidUrl: "https://rosnewgen.com/api/community-app/download",
             pcUrl: "",
             websiteUrl: "https://rosnewgen.com/",
             discordUrl: "https://discord.gg/dGnZMCWdu"
@@ -173,6 +173,38 @@ document.addEventListener('DOMContentLoaded', () => {
             pcUrl: "https://www.mediafire.com/file/1u1amv315b5g1u1/RoSReloaded_OpenBeta_1.0_Setup.zip/file?action=check",
             websiteUrl: "https://rosreloaded.com/",
             discordUrl: "https://discord.gg/vA2EnvHW2"
+        },
+        {
+            id: "server8",
+            tag: "Eternal",
+            title: "Ros: Eternal",
+            shortSummary: "Custom revival server • PC & Android",
+            desc: "New Ros Awaits You With Pc And Android Support!",
+            androidSize: "4.1 GB",
+            pcSize: "6.0 GB",
+            hash: "OPEN BETA TEST",
+            logoUrl: "Pictures/Ethernal.png",
+            bgUrl: "Pictures/Photo1.jpg",
+            androidUrl: "https://dl.roseternal.com/downloads/mobile",
+            pcUrl: "https://dl.roseternal.com/downloads/launcher",
+            websiteUrl: "https://roseternal.com/",
+            discordUrl: "https://discord.gg/3WYrTKD3x"
+        },
+        {
+            id: "server9",
+            tag: "Angkor",
+            title: "Ros: Angkor",
+            shortSummary: "Custom revival server • Android",
+            desc: "New Ros Awaits You With Android Support!",
+            androidSize: "IOS FOR NOW! DOWLOAD USING IOS DEVICE.",
+            pcSize: "6.0 GB",
+            hash: "OPEN BETA TEST",
+            logoUrl: "Pictures/Ankor.png",
+            bgUrl: "Pictures/Ankor 1.png",
+            androidUrl: "https://rosangkor.com/",
+            pcUrl: "",
+            websiteUrl: "https://rosangkor.com/",
+            discordUrl: "https://discord.gg/EMFDyBVqV"
         }
     ];
 
